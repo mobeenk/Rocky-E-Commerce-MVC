@@ -13,11 +13,12 @@ namespace Rocky.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-
+            
         }
         public DbSet<Category> Category { get; set; }
         public DbSet<ApplicationType> ApplicationType { get; set; }
         public DbSet<Product> Product { get; set; }
-       
+        public DbSet<AppUser> AppUser { get; set; }
+
     }
 }

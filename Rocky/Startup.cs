@@ -34,8 +34,13 @@ namespace Rocky
                     Configuration.GetConnectionString("Default")
                 );
             });
-            services.AddDefaultIdentity<IdentityUser>()
+
+            //Identity
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddDefaultTokenProviders().AddDefaultUI()
                 .AddEntityFrameworkStores<DataContext>();
+
+
             //configure session
             services.AddHttpContextAccessor();
             services.AddSession(option =>
