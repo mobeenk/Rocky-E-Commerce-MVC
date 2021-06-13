@@ -11,7 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Rocky.Utility;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Rocky
 {
@@ -50,7 +51,7 @@ namespace Rocky
                 option.Cookie.IsEssential = true;
             });
             services.AddControllersWithViews();
-            
+            services.AddTransient<IEmailSender, EmailSender>();
 
         }
 
