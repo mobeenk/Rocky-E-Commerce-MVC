@@ -12,6 +12,6 @@ namespace Rocky.Models.ViewModels
             ProductList = new List<Product>();
         }
         public AppUser appUser { get; set; }
-        public IEnumerable<Product> ProductList { get; set; }
+        public List<Product> ProductList { get; set; }
     }
 }

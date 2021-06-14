@@ -38,20 +38,23 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
 
+                        @if (User.IsInRole(WC.AdminRole))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Content Managment
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                                    <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="ApplicationType" asp-action="Index">ApplicationType</a>
+                                    <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
+                                    <div class="dropdown-divider" href="#"></div>
+                                    <a class="dropdown-item nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Create Admin User</a>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Content Managment
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
-                                <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="ApplicationType" asp-action="Index">ApplicationType</a>
-                                <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
-                                <div class="dropdown-divider" href="#"></div>
-                                <a class="dropdown-item nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Create Admin User</a>
-
-                            </div>
-                        </li>
+                                </div>
+                            </li>
+                        }
+                        
 
                         <li>
                             @if (httpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart) != null)

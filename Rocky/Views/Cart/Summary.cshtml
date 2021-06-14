@@ -15,7 +15,7 @@
                         Order Summary
                     </div>
                     <div class="col-6 text-right">
-                        <a class="btn btn-outline-info btn-sm">Back to Cart</a>
+                        <a asp-controller="Cart" asp-action="Index" class="btn btn-outline-info btn-sm">Back to Cart</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -63,12 +63,14 @@
                                     
 
                                     <ul class="list-group mb-3">
-                                        @foreach (var obj in Model.ProductList)
+                                        @for (int i =0; i <Model.ProductList.Count();i++)
                                         {
+                                            <input type="hidden" asp-for="@Model.ProductList[i].Id"  />
+                                            <input type="hidden" asp-for="@Model.ProductList[i].Name"  />
                                             <li class="list-group-item d-flex justify-content-between">
                                                 <div>
-                                                    <h6 class="my-0">@obj.Name</h6>
-                                                    <small class="text-muted">Price per Sqft: $@obj.Price</small>
+                                                    <h6 class="my-0">@Model.ProductList[i].Name</h6>
+                                                    <small class="text-muted">Price per Sqft: $@Model.ProductList[i].Price</small>
                                                 </div>
                                             </li>
                                         }
